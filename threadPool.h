@@ -13,6 +13,9 @@ typedef struct thread_pool {
     pthread_mutex_t thread_pool_mutex;
     pthread_cond_t cond;
     int destroyed;
+    int threads_running;
+    int take_tasks_from_queue;
+    int num_of_threads;
 } ThreadPool;
 
 ThreadPool* tpCreate(int numOfThreads);
